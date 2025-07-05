@@ -1,5 +1,6 @@
 
 import { ShoppingBag, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface ProductCardProps {
   id: number;
@@ -14,6 +15,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ 
+  id,
   name, 
   price, 
   originalPrice, 
@@ -24,7 +26,10 @@ const ProductCard = ({
   isOnSale 
 }: ProductCardProps) => {
   return (
-    <div className="group relative bg-fashion-charcoal rounded-xl overflow-hidden hover-lift hover:bg-fashion-gray-dark transition-all duration-300">
+    <Link 
+      to={`/product/${id}`}
+      className="group relative bg-fashion-charcoal rounded-xl overflow-hidden hover-lift hover:bg-fashion-gray-dark transition-all duration-300 block"
+    >
       {/* Image Container */}
       <div className="relative aspect-[3/4] overflow-hidden">
         <img
@@ -51,7 +56,14 @@ const ProductCard = ({
         </div>
 
         {/* Add to Cart Button */}
-        <button className="absolute bottom-4 right-4 w-12 h-12 bg-fashion-gold text-fashion-black rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:scale-110">
+        <button 
+          className="absolute bottom-4 right-4 w-12 h-12 bg-fashion-gold text-fashion-black rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:scale-110"
+          onClick={(e) => {
+            e.preventDefault();
+            // Ici vous pouvez ajouter la logique d'ajout au panier
+            console.log('Ajouté au panier:', name);
+          }}
+        >
           <ShoppingBag size={20} />
         </button>
       </div>
@@ -94,7 +106,7 @@ const ProductCard = ({
           )}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
