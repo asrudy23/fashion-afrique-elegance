@@ -107,7 +107,7 @@ const Index = () => {
             </div>
             <div className="relative animate-fade-in">
               <img
-                src="src/images/rb-shop6.png"
+                src="../../public/images/rb-shop6.png"
                 alt="Atelier FASHION"
                 className="rounded-xl shadow-2xl hover-lift"
               />
