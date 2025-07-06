@@ -13,6 +13,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Panier from "./pages/Panier";
+import ScrollToTop from "@/components/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop/>
         <div className="min-h-screen bg-fashion-black">
           <Header />
           <Routes>

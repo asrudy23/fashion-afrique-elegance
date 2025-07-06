@@ -54,7 +54,7 @@ const Panier = () => {
       .join("\n\n");
 
     const finalMessage = `*Bonjour j'aimerais effectuer une commande*\n\n${message}\n\n💰 *Total*: ${total}MAD`;
-    const phoneNumber = "212693710555";
+    const phoneNumber = "212690799236";
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(finalMessage)}`;
     window.open(url, "_blank");
 
@@ -85,51 +85,55 @@ const Panier = () => {
           {/* Colonne des articles */}
           <div className="lg:col-span-2 space-y-6">
             {cart.map((item) => (
-              <div
-                key={item.cartItemId}
-                className="bg-fashion-charcoal p-4 rounded-lg flex items-center justify-between gap-4 transition-all duration-300"
-              >
-                <div className="flex gap-4 items-center">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-24 h-24 object-cover rounded-md"
-                  />
-                  <div>
-                    <h2 className="font-semibold text-lg">{item.name}</h2>
-                    <p className="text-gray-400 text-sm">Taille : {item.size}</p>
-                    <p className="text-gray-400 text-sm">Couleur : {item.color}</p>
-                    <p className="text-fashion-gold font-bold mt-2">{item.price.toFixed(2)}€</p>
+                <div
+                    key={item.cartItemId}
+                    className="bg-fashion-charcoal p-4 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                >
+                  <div className="flex items-start sm:items-center gap-4 w-full">
+                    <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full sm:w-24 sm:h-24 h-auto object-cover rounded-md max-w-[120px]"
+                    />
+                    <div className="flex-1 min-w-0">
+                      <h2 className="font-semibold text-lg truncate">{item.name}</h2>
+                      <p className="text-gray-400 text-sm">Taille : {item.size}</p>
+                      <p className="text-gray-400 text-sm">Couleur : {item.color}</p>
+                      <p className="text-fashion-gold font-bold mt-2">{item.price.toFixed(2)} MAD</p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex items-center gap-4">
-                   {/* Sélecteur de quantité */}
-                   <div className="flex items-center gap-2 border border-gray-600 rounded-md">
+                  <div className="flex flex-wrap items-center justify-between sm:justify-end gap-2 w-full">
+                    {/* Sélecteur de quantité */}
+                    <div className="flex items-center border border-gray-600 rounded-md">
                       <button
-                        onClick={() => updateQuantity(item.cartItemId, item.quantity - 1)}
-                        className="px-2 py-1 text-gray-300 hover:text-fashion-gold"
+                          onClick={() => updateQuantity(item.cartItemId, item.quantity - 1)}
+                          className="px-3 py-1 text-gray-300 hover:text-fashion-gold"
                       >
-                        -
+                        −
                       </button>
-                      <span className="font-semibold w-6 text-center">{item.quantity}</span>
+                      <span className="font-semibold w-8 text-center">{item.quantity}</span>
                       <button
-                        onClick={() => updateQuantity(item.cartItemId, item.quantity + 1)}
-                        className="px-2 py-1 text-gray-300 hover:text-fashion-gold"
+                          onClick={() => updateQuantity(item.cartItemId, item.quantity + 1)}
+                          className="px-3 py-1 text-gray-300 hover:text-fashion-gold"
                       >
                         +
                       </button>
                     </div>
 
-                    <p className="text-white font-bold text-lg w-20 text-right">
-                      {(item.price * item.quantity).toFixed(2)}€
+                    <p className="text-white font-bold text-base sm:text-lg w-28 text-right">
+                      {(item.price * item.quantity).toFixed(2)} MAD
                     </p>
 
-                    <button onClick={() => removeFromCart(item.cartItemId)} className="text-gray-500 hover:text-red-500 transition-colors">
+                    <button
+                        onClick={() => removeFromCart(item.cartItemId)}
+                        className="text-gray-500 hover:text-red-500 transition-colors"
+                    >
                       <Trash2 size={20} />
                     </button>
+                  </div>
                 </div>
-              </div>
+
             ))}
           </div>
 

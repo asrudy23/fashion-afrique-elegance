@@ -17,7 +17,7 @@ const Footer = () => {
               <span className="text-3xl font-playfair font-bold text-gradient-gold"> RB WOMEN'S FASHION</span>
             </Link>
             <p className="text-gray-400 mb-6 max-w-md font-inter leading-relaxed">
-              FASHION célèbre la beauté et l'élégance de la mode traditionnelle africaine moderne. 
+              RB WOMEN'S FASHION célèbre la beauté et l'élégance de la mode traditionnelle africaine moderne.
               Chaque pièce raconte une histoire, chaque tenue exprime votre raffinement.
             </p>
             <div className="flex space-x-4">

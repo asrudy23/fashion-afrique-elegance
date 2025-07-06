@@ -28,7 +28,7 @@ const ProductCard = ({
   return (
     <Link 
       to={`/product/${id}`}
-      className="group relative bg-fashion-charcoal rounded-xl overflow-hidden hover-lift hover:bg-fashion-gray-dark transition-all duration-300 block"
+      className="group relative bg-fashion-charcoal rounded-xl overflow-hidden hover-lift hover:bg-fashion-gray-dark transition-all duration-300 block min-w-0"
     >
       {/* Image Container */}
       <div className="relative aspect-[3/4] overflow-hidden">
@@ -56,27 +56,27 @@ const ProductCard = ({
         </div>
 
         {/* Add to Cart Button */}
-        <button 
-          className="absolute bottom-4 right-4 w-12 h-12 bg-fashion-gold text-fashion-black rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:scale-110"
-          onClick={(e) => {
-            e.preventDefault();
-            // Ici vous pouvez ajouter la logique d'ajout au panier
-            console.log('Ajouté au panier:', name);
-          }}
-        >
-          <ShoppingBag size={20} />
-        </button>
+        {/*<button */}
+        {/*  className="absolute bottom-4 right-4 w-12 h-12 bg-fashion-gold text-fashion-black rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:scale-110"*/}
+        {/*  onClick={(e) => {*/}
+        {/*    e.preventDefault();*/}
+        {/*    // Ici vous pouvez ajouter la logique d'ajout au panier*/}
+        {/*    console.log('Ajouté au panier:', name);*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  <ShoppingBag size={20} />*/}
+        {/*</button>*/}
       </div>
 
       {/* Content */}
-      <div className="p-6">
-        <div className="mb-2">
-          <span className="text-fashion-gold text-sm font-medium uppercase tracking-wider">
+      <div className="p-4 sm:p-6 min-w-0">
+      <div className="mb-2">
+          <span className="text-fashion-gold text-xs sm:text-sm font-medium uppercase tracking-wider truncate block max-w-full">
             {category}
           </span>
         </div>
-        
-        <h3 className="text-white font-playfair text-lg font-semibold mb-3 group-hover:text-fashion-gold transition-colors duration-300">
+
+        <h3 className="text-white font-playfair text-base sm:text-lg font-semibold mb-3 group-hover:text-fashion-gold transition-colors duration-300 line-clamp-2">
           {name}
         </h3>
 

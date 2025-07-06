@@ -47,7 +47,7 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1 animate-fade-in">
               <img
-                src="/images/rb-shop1.png"
+                src="/images/rb-shop12.jpg"
                 alt="Artisanat FASHION"
                 className="rounded-xl shadow-2xl hover-lift"
               />

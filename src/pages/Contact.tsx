@@ -65,10 +65,7 @@ const Contact = () => {
                       Email
                     </h3>
                     <p className="text-gray-300 font-inter">
-                      fashion@email.com
-                    </p>
-                    <p className="text-gray-300 font-inter">
-                      info@fashion-africa.com
+                      rbwomenfashion@gmail.com
                     </p>
                   </div>
                 </div>
