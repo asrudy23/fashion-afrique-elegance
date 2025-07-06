@@ -47,7 +47,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-gold rounded-full flex items-center justify-center">
-              <img src="../../public/images/logo-rb.png" alt="Logo"></img>
+              <img src="/images/logo-rb.png" alt="Logo"></img>
             </div>
             <span className="text-2xl font-playfair font-bold text-gradient-gold">
               RB WOMEN'S FASHION
