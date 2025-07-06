@@ -76,9 +76,8 @@ const Header = () => {
 
           {/* Right Icons */}
           <div className="flex items-center space-x-4">
-            <button className="p-2 text-gray-300 hover:text-fashion-gold transition-colors duration-300">
-              <Search size={20} />
-            </button>
+            {/* */}
+            
             <Link
               to="/panier"
               className="relative p-2 text-gray-300 hover:text-fashion-gold transition-colors duration-300"
