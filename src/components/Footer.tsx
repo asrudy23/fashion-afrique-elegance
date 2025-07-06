@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="flex items-center space-x-2 mb-4">
               <div className="w-12 h-12 bg-gradient-gold rounded-full flex items-center justify-center">
-                <img src="../../public/images/logo-rb.png" alt="Logo"></img>
+                <img src="/images/logo-rb.png" alt="Logo"></img>
                 </div>
               <span className="text-3xl font-playfair font-bold text-gradient-gold"> RB WOMEN'S FASHION</span>
             </Link>

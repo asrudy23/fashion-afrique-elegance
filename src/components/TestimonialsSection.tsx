@@ -6,7 +6,7 @@ const testimonials = [
     id: 1,
     name: "Amirath Malick",
     location: "Oujda, Maroc",
-    image: "src/images/rb-shop7.png",
+    image: "/images/rb-shop7.png",
     rating: 5,
     text: " RB WOMEN'S FASHION a transformé ma garde-robe ! Leurs boubous modernes allient parfaitement tradition et élégance contemporaine. Je me sens radieuse à chaque port."
   },
@@ -14,7 +14,7 @@ const testimonials = [
     id: 2,
     name: "Rosna",
     location: "Oujda, Maroc ",
-    image: "src/images/rb-shop5.png",
+    image: "/images/rb-shop5.png",
     rating: 5,
     text: "La qualité des tissus et la finition des tenues sont exceptionnelles.RB WOMEN'S FASHION capture l'essence de la beauté africaine avec un raffinement incomparable."
   },
@@ -22,7 +22,7 @@ const testimonials = [
     id: 3,
     name: "Jennifer",
     location: "Oujda, Maroc",
-    image: "src/images/rb-shop8.png",
+    image: "/images/rb-shop8.png",
     rating: 5,
     text: "Chaque pièce raconte une histoire. Porter RB WOMEN'S FASHION, c'est célébrer mes racines tout en affirmant ma modernité. Un service client exemplaire en plus !"
   }
