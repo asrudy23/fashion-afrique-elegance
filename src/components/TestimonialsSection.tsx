@@ -4,27 +4,27 @@ import { Star } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    name: "Aminata Diallo",
-    location: "Paris, France",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400&auto=format&fit=crop",
+    name: "Amirath Malick",
+    location: "Oujda, Maroc",
+    image: "src/images/rb-shop7.png",
     rating: 5,
-    text: "FASHION a transformé ma garde-robe ! Leurs boubous modernes allient parfaitement tradition et élégance contemporaine. Je me sens radieuse à chaque port."
+    text: " RB WOMEN'S FASHION a transformé ma garde-robe ! Leurs boubous modernes allient parfaitement tradition et élégance contemporaine. Je me sens radieuse à chaque port."
   },
   {
     id: 2,
-    name: "Fatou Keita",
-    location: "Lyon, France",
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=400&auto=format&fit=crop",
+    name: "Rosna",
+    location: "Oujda, Maroc ",
+    image: "src/images/rb-shop5.png",
     rating: 5,
-    text: "La qualité des tissus et la finition des tenues sont exceptionnelles. FASHION capture l'essence de la beauté africaine avec un raffinement incomparable."
+    text: "La qualité des tissus et la finition des tenues sont exceptionnelles.RB WOMEN'S FASHION capture l'essence de la beauté africaine avec un raffinement incomparable."
   },
   {
     id: 3,
-    name: "Mariam Touré",
-    location: "Marseille, France",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400&auto=format&fit=crop",
+    name: "Jennifer",
+    location: "Oujda, Maroc",
+    image: "src/images/rb-shop8.png",
     rating: 5,
-    text: "Chaque pièce raconte une histoire. Porter FASHION, c'est célébrer mes racines tout en affirmant ma modernité. Un service client exemplaire en plus !"
+    text: "Chaque pièce raconte une histoire. Porter RB WOMEN'S FASHION, c'est célébrer mes racines tout en affirmant ma modernité. Un service client exemplaire en plus !"
   }
 ];
 

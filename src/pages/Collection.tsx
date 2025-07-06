@@ -1,14 +1,15 @@
 
 import { useState } from 'react';
 import ProductCard from '../components/ProductCard';
-
+import { allProducts } from '@/mockdata/Products';
+/*
 const products = [
   {
     id: 1,
     name: "Boubou Royal Doré",
     price: 189,
     originalPrice: 230,
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=600&auto=format&fit=crop",
+    image: "src/images/rb-shop1.png",
     category: "Boubou",
     rating: 5,
     isNew: true,
@@ -18,7 +19,7 @@ const products = [
     id: 2,
     name: "Robe Wax Élégance",
     price: 145,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop",
+    image: "src/images/rb-shop1.png",
     category: "Robe Wax",
     rating: 5,
     isNew: true
@@ -27,7 +28,7 @@ const products = [
     id: 3,
     name: "Ensemble Pagne Moderne",
     price: 165,
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=600&auto=format&fit=crop",
+    image: "src/images/rb-shop1.png",
     category: "Pagne",
     rating: 4
   },
@@ -35,7 +36,7 @@ const products = [
     id: 4,
     name: "Tenue Mariage Luxe",
     price: 295,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop",
+    image: "src/images/rb-shop1.png",
     category: "Mariage",
     rating: 5,
     isNew: true
@@ -44,7 +45,7 @@ const products = [
     id: 5,
     name: "Kaftan Brodé Or",
     price: 220,
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=600&auto=format&fit=crop",
+    image: "src/images/rb-shop1.png",
     category: "Kaftan",
     rating: 5
   },
@@ -53,7 +54,7 @@ const products = [
     name: "Dashiki Premium",
     price: 95,
     originalPrice: 120,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop",
+    image: "src/images/rb-shop1.png",
     category: "Dashiki",
     rating: 4,
     isOnSale: true
@@ -62,7 +63,7 @@ const products = [
     id: 7,
     name: "Robe Ankara Festive",
     price: 175,
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=600&auto=format&fit=crop",
+    image: "src/images/rb-shop1.png",
     category: "Robe Wax",
     rating: 5
   },
@@ -70,20 +71,20 @@ const products = [
     id: 8,
     name: "Ensemble Cérémonie",
     price: 340,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop",
+    image: "src/images/rb-shop1.png",
     category: "Mariage",
     rating: 5,
     isNew: true
   }
-];
+];*/
 
-const categories = ["Tous", "Boubou", "Robe Wax", "Pagne", "Mariage", "Kaftan", "Dashiki"];
+const categories = ["Tous", "Tya", "Sayana", "Ahouefa", "Spéra", "Asmik"];
 
 const Collection = () => {
   const [selectedCategory, setSelectedCategory] = useState("Tous");
   const [sortBy, setSortBy] = useState("newest");
 
-  const filteredProducts = products.filter(product => 
+  const filteredProducts = allProducts.filter(product => 
     selectedCategory === "Tous" || product.category === selectedCategory
   );
 

@@ -10,7 +10,7 @@ const About = () => {
             <span className="block text-gradient-gold">Histoire</span>
           </h1>
           <p className="text-xl text-gray-300 font-inter leading-relaxed">
-            FASHION est né de l'amour profond pour la richesse culturelle africaine 
+            RB WOMEN'S FASHION est né de l'amour profond pour la richesse culturelle africaine 
             et de la vision d'une mode qui célèbre l'héritage tout en embrassant la modernité.
           </p>
         </div>
@@ -26,7 +26,7 @@ const About = () => {
                 <span className="block text-gradient-gold">D'Élégance</span>
               </h2>
               <p className="text-lg text-gray-300 mb-6 font-inter leading-relaxed">
-                Fondée par des passionnés de mode et de culture africaine, FASHION transcende 
+                Fondée par des passionnés de mode et de culture africaine, RB WOMEN'S FASHION transcende 
                 les frontières entre tradition et innovation. Chaque pièce de notre collection 
                 raconte une histoire, porte un héritage et affirme une identité.
               </p>
@@ -37,7 +37,7 @@ const About = () => {
             </div>
             <div className="animate-fade-in">
               <img
-                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=800&auto=format&fit=crop"
+                src="src/images/rb-shop5.png"
                 alt="Vision FASHION"
                 className="rounded-xl shadow-2xl hover-lift"
               />
@@ -47,7 +47,7 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1 animate-fade-in">
               <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop"
+                src="src/images/rb-shop1.png"
                 alt="Artisanat FASHION"
                 className="rounded-xl shadow-2xl hover-lift"
               />
@@ -102,7 +102,7 @@ const About = () => {
               </div>
               <h3 className="text-2xl font-playfair font-bold text-fashion-gold mb-4">Excellence</h3>
               <p className="text-gray-300 font-inter leading-relaxed">
-                Chaque pièce FASHION est le résultat d'un travail minutieux, 
+                Chaque pièce RB WOMEN'S FASHION est le résultat d'un travail minutieux, 
                 d'une sélection rigoureuse des matériaux et d'un contrôle qualité exigeant.
               </p>
             </div>
@@ -133,7 +133,7 @@ const About = () => {
             à travers des créations qui allient tradition, élégance et modernité.
           </p>
           <p className="text-lg text-gray-300 font-inter leading-relaxed">
-            FASHION, c'est plus qu'une marque de mode - c'est un pont entre les générations, 
+            RB WOMEN'S FASHION, c'est plus qu'une marque de mode - c'est un pont entre les générations, 
             une célébration de la diversité culturelle et un hymne à la féminité africaine dans toute sa splendeur.
           </p>
         </div>

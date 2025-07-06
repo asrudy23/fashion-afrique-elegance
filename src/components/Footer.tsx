@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom';
-import { Mail, Instagram, Facebook } from 'lucide-react';
+import { Instagram, Facebook } from 'lucide-react';
+import { FaWhatsapp,FaSnapchat, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -11,23 +12,26 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="flex items-center space-x-2 mb-4">
               <div className="w-12 h-12 bg-gradient-gold rounded-full flex items-center justify-center">
-                <span className="text-fashion-black font-bold text-xl font-playfair">F</span>
-              </div>
-              <span className="text-3xl font-playfair font-bold text-gradient-gold">FASHION</span>
+                <img src="src/images/logo-rb.png" alt="Logo"></img>
+                </div>
+              <span className="text-3xl font-playfair font-bold text-gradient-gold"> RB WOMEN'S FASHION</span>
             </Link>
             <p className="text-gray-400 mb-6 max-w-md font-inter leading-relaxed">
               FASHION célèbre la beauté et l'élégance de la mode traditionnelle africaine moderne. 
               Chaque pièce raconte une histoire, chaque tenue exprime votre raffinement.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-fashion-gold/10 hover:bg-fashion-gold hover:text-fashion-black rounded-full flex items-center justify-center text-fashion-gold transition-all duration-300">
+              <a href="https://www.instagram.com/rbwomen.sfashion01?utm_source=ig_web_button_share_sheet&igsh=dmlxOWFvdmFmNm15" className="w-10 h-10 bg-fashion-gold/10 hover:bg-fashion-gold hover:text-fashion-black rounded-full flex items-center justify-center text-fashion-gold transition-all duration-300">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="w-10 h-10 bg-fashion-gold/10 hover:bg-fashion-gold hover:text-fashion-black rounded-full flex items-center justify-center text-fashion-gold transition-all duration-300">
-                <Facebook size={18} />
+              <a href="https://wa.me/c/212690799236" className="w-10 h-10 bg-fashion-gold/10 hover:bg-fashion-gold hover:text-fashion-black rounded-full flex items-center justify-center text-fashion-gold transition-all duration-300">
+                <FaWhatsapp size={18} />
               </a>
-              <a href="#" className="w-10 h-10 bg-fashion-gold/10 hover:bg-fashion-gold hover:text-fashion-black rounded-full flex items-center justify-center text-fashion-gold transition-all duration-300">
-                <Mail size={18} />
+              <a href="https://www.snapchat.com/add/rbwomensfashion?share_id=EAh_BXH5Spg&locale=fr-FR" className="w-10 h-10 bg-fashion-gold/10 hover:bg-fashion-gold hover:text-fashion-black rounded-full flex items-center justify-center text-fashion-gold transition-all duration-300">
+                <FaSnapchat size={18} />
+              </a>
+              <a href="https://www.tiktok.com/@rb.womens.fashion?_t=ZS-8xnz52sPzb6&_r=1" className="w-10 h-10 bg-fashion-gold/10 hover:bg-fashion-gold hover:text-fashion-black rounded-full flex items-center justify-center text-fashion-gold transition-all duration-300">
+                <FaTiktok size={18} />
               </a>
             </div>
           </div>
@@ -47,16 +51,16 @@ const Footer = () => {
           <div>
             <h3 className="text-fashion-gold font-playfair font-semibold text-lg mb-4">Contact</h3>
             <div className="space-y-2 text-gray-400 font-inter">
-              <p>fashion@email.com</p>
-              <p>+33 1 23 45 67 89</p>
-              <p>Paris, France</p>
+              <p>rbwomenshop@email.com</p>
+              <p>+212 690-799236</p>
+              <p>Oujda,Maroc</p>
             </div>
           </div>
         </div>
 
         <div className="border-t border-fashion-gold/20 mt-8 pt-8 text-center">
           <p className="text-gray-400 font-inter">
-            © 2024 FASHION. Tous droits réservés. Créé avec passion pour célébrer l'élégance africaine.
+            © 2025 RB WOMEN'S FASHION. Tous droits réservés. Créé avec passion pour célébrer l'élégance africaine.
           </p>
         </div>
       </div>

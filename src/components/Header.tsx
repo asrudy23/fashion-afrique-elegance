@@ -1,17 +1,41 @@
-
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingBag, Search } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, ShoppingBag, Search } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    // Fonction pour mettre à jour le compteur
+    const updateCartCount = () => {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      // On somme les quantités de chaque article
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      setCartCount(totalItems);
+    };
+
+    updateCartCount(); // Au chargement initial
+
+    // Écoute les mises à jour depuis d'autres onglets
+    window.addEventListener("storage", updateCartCount);
+    // Écoute les mises à jour depuis le même onglet (notre événement personnalisé)
+    window.addEventListener("cartUpdated", updateCartCount);
+
+    // Nettoyage des écouteurs
+    return () => {
+      window.removeEventListener("storage", updateCartCount);
+      window.removeEventListener("cartUpdated", updateCartCount);
+    };
+  }, []);
+
   const navigation = [
-    { name: 'Accueil', href: '/' },
-    { name: 'Collection', href: '/collection' },
-    { name: 'À propos', href: '/about' },
-    { name: 'Contact', href: '/contact' },
+    { name: "Accueil", href: "/" },
+    { name: "Collection", href: "/collection" },
+    { name: "À propos", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const isActive = (href: string) => location.pathname === href;
@@ -23,9 +47,11 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-gold rounded-full flex items-center justify-center">
-              <span className="text-fashion-black font-bold text-lg font-playfair">F</span>
+              <img src="src/images/logo-rb.png" alt="Logo"></img>
             </div>
-            <span className="text-2xl font-playfair font-bold text-gradient-gold">FASHION</span>
+            <span className="text-2xl font-playfair font-bold text-gradient-gold">
+              RB WOMEN'S FASHION
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -36,8 +62,8 @@ const Header = () => {
                 to={item.href}
                 className={`font-inter font-medium transition-all duration-300 relative ${
                   isActive(item.href)
-                    ? 'text-fashion-gold'
-                    : 'text-gray-300 hover:text-fashion-gold'
+                    ? "text-fashion-gold"
+                    : "text-gray-300 hover:text-fashion-gold"
                 }`}
               >
                 {item.name}
@@ -53,12 +79,17 @@ const Header = () => {
             <button className="p-2 text-gray-300 hover:text-fashion-gold transition-colors duration-300">
               <Search size={20} />
             </button>
-            <button className="p-2 text-gray-300 hover:text-fashion-gold transition-colors duration-300 relative">
+            <Link
+              to="/panier"
+              className="relative p-2 text-gray-300 hover:text-fashion-gold transition-colors duration-300"
+            >
               <ShoppingBag size={20} />
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-fashion-gold text-fashion-black text-xs rounded-full flex items-center justify-center font-bold">
-                0
-              </span>
-            </button>
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-fashion-gold text-fashion-black text-xs rounded-full flex items-center justify-center font-bold">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
 
             {/* Mobile Menu Button */}
             <button
@@ -81,8 +112,8 @@ const Header = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`block px-3 py-2 text-base font-medium rounded-lg transition-all duration-300 ${
                     isActive(item.href)
-                      ? 'text-fashion-gold bg-fashion-gold/10'
-                      : 'text-gray-300 hover:text-fashion-gold hover:bg-fashion-gold/5'
+                      ? "text-fashion-gold bg-fashion-gold/10"
+                      : "text-gray-300 hover:text-fashion-gold hover:bg-fashion-gold/5"
                   }`}
                 >
                   {item.name}

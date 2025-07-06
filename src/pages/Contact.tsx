@@ -1,27 +1,31 @@
-
-import { useState } from 'react';
-import { Mail, Instagram, Facebook, MapPin, Clock } from 'lucide-react';
+import { useState } from "react";
+import { Mail, Instagram,  MapPin, Clock } from "lucide-react";
+import { FaWhatsapp,FaSnapchat, FaTiktok } from "react-icons/fa";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Handle form submission logic here
-    alert('Merci pour votre message ! Nous vous répondrons bientôt.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    alert("Merci pour votre message ! Nous vous répondrons bientôt.");
+    setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -35,8 +39,8 @@ const Contact = () => {
             <span className="block text-gradient-gold">Contacter</span>
           </h1>
           <p className="text-xl text-gray-300 font-inter">
-            Une question ? Un projet personnalisé ? Nous sommes là pour vous accompagner 
-            dans votre quête d'élégance africaine moderne.
+            Une question ? Un projet personnalisé ? Nous sommes là pour vous
+            accompagner dans votre quête d'élégance africaine moderne.
           </p>
         </div>
       </section>
@@ -57,9 +61,15 @@ const Contact = () => {
                     <Mail className="text-fashion-gold" size={20} />
                   </div>
                   <div>
-                    <h3 className="text-fashion-gold font-semibold font-playfair mb-2">Email</h3>
-                    <p className="text-gray-300 font-inter">fashion@email.com</p>
-                    <p className="text-gray-300 font-inter">info@fashion-africa.com</p>
+                    <h3 className="text-fashion-gold font-semibold font-playfair mb-2">
+                      Email
+                    </h3>
+                    <p className="text-gray-300 font-inter">
+                      fashion@email.com
+                    </p>
+                    <p className="text-gray-300 font-inter">
+                      info@fashion-africa.com
+                    </p>
                   </div>
                 </div>
 
@@ -68,9 +78,13 @@ const Contact = () => {
                     <MapPin className="text-fashion-gold" size={20} />
                   </div>
                   <div>
-                    <h3 className="text-fashion-gold font-semibold font-playfair mb-2">Adresse</h3>
-                    <p className="text-gray-300 font-inter">123 Avenue de la Mode</p>
-                    <p className="text-gray-300 font-inter">75001 Paris, France</p>
+                    <h3 className="text-fashion-gold font-semibold font-playfair mb-2">
+                      Adresse
+                    </h3>
+                    <p className="text-gray-300 font-inter">Hay Arrabie</p>
+                    <p className="text-gray-300 font-inter">
+                      60000 Oujda, Maroc
+                    </p>
                   </div>
                 </div>
 
@@ -79,25 +93,48 @@ const Contact = () => {
                     <Clock className="text-fashion-gold" size={20} />
                   </div>
                   <div>
-                    <h3 className="text-fashion-gold font-semibold font-playfair mb-2">Horaires</h3>
-                    <p className="text-gray-300 font-inter">Lun - Ven: 9h00 - 18h00</p>
-                    <p className="text-gray-300 font-inter">Sam: 10h00 - 16h00</p>
+                    <h3 className="text-fashion-gold font-semibold font-playfair mb-2">
+                      Horaires
+                    </h3>
+                    <p className="text-gray-300 font-inter">
+                      Lun - Ven: 9h00 - 18h00
+                    </p>
+                    <p className="text-gray-300 font-inter">
+                      Sam: 10h00 - 16h00
+                    </p>
                   </div>
                 </div>
               </div>
 
               {/* Social Media */}
               <div className="mt-12">
-                <h3 className="text-fashion-gold font-semibold font-playfair mb-4">Suivez-nous</h3>
+                <h3 className="text-fashion-gold font-semibold font-playfair mb-4">
+                  Suivez-nous
+                </h3>
                 <div className="flex space-x-4">
-                  <a href="#" className="w-12 h-12 bg-fashion-gold/10 hover:bg-fashion-gold hover:text-fashion-black rounded-lg flex items-center justify-center text-fashion-gold transition-all duration-300">
-                    <Instagram size={20} />
+                  <a
+                    href="https://www.instagram.com/rbwomen.sfashion01?utm_source=ig_web_button_share_sheet&igsh=dmlxOWFvdmFmNm15"
+                    className="w-12 h-12 bg-fashion-gold/10 hover:bg-fashion-gold hover:text-fashion-black rounded-lg flex items-center justify-center text-fashion-gold transition-all duration-300"
+                  >
+                    <Instagram size={18} />
                   </a>
-                  <a href="#" className="w-12 h-12 bg-fashion-gold/10 hover:bg-fashion-gold hover:text-fashion-black rounded-lg flex items-center justify-center text-fashion-gold transition-all duration-300">
-                    <Facebook size={20} />
+                  <a
+                    href="https://wa.me/c/212690799236"
+                    className="w-12 h-12 bg-fashion-gold/10 hover:bg-fashion-gold hover:text-fashion-black rounded-lg flex items-center justify-center text-fashion-gold transition-all duration-300"
+                  >
+                    <FaWhatsapp size={18} />
                   </a>
-                  <a href="#" className="w-12 h-12 bg-fashion-gold/10 hover:bg-fashion-gold hover:text-fashion-black rounded-lg flex items-center justify-center text-fashion-gold transition-all duration-300">
-                    <Mail size={20} />
+                  <a
+                    href="https://www.snapchat.com/add/rbwomensfashion?share_id=EAh_BXH5Spg&locale=fr-FR"
+                    className="w-12 h-12 bg-fashion-gold/10 hover:bg-fashion-gold hover:text-fashion-black rounded-lg flex items-center justify-center text-fashion-gold transition-all duration-300"
+                  >
+                    <FaSnapchat size={18} />
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@rb.womens.fashion?_t=ZS-8xnz52sPzb6&_r=1"
+                    className="w-12 h-12 bg-fashion-gold/10 hover:bg-fashion-gold hover:text-fashion-black rounded-lg flex items-center justify-center text-fashion-gold transition-all duration-300"
+                  >
+                    <FaTiktok size={18} />
                   </a>
                 </div>
               </div>
@@ -114,7 +151,10 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-fashion-gold font-medium mb-2 font-inter">
+                      <label
+                        htmlFor="name"
+                        className="block text-fashion-gold font-medium mb-2 font-inter"
+                      >
                         Nom complet *
                       </label>
                       <input
@@ -129,7 +169,10 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-fashion-gold font-medium mb-2 font-inter">
+                      <label
+                        htmlFor="email"
+                        className="block text-fashion-gold font-medium mb-2 font-inter"
+                      >
                         Email *
                       </label>
                       <input
@@ -146,7 +189,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-fashion-gold font-medium mb-2 font-inter">
+                    <label
+                      htmlFor="subject"
+                      className="block text-fashion-gold font-medium mb-2 font-inter"
+                    >
                       Sujet *
                     </label>
                     <select
@@ -158,16 +204,23 @@ const Contact = () => {
                       className="w-full px-4 py-3 bg-fashion-black border border-fashion-gold/30 rounded-lg text-white focus:outline-none focus:border-fashion-gold transition-colors duration-300 font-inter"
                     >
                       <option value="">Sélectionnez un sujet</option>
-                      <option value="commande">Question sur une commande</option>
+                      <option value="commande">
+                        Question sur une commande
+                      </option>
                       <option value="produit">Information produit</option>
-                      <option value="personnalisation">Demande de personnalisation</option>
+                      <option value="personnalisation">
+                        Demande de personnalisation
+                      </option>
                       <option value="partenariat">Partenariat</option>
                       <option value="autre">Autre</option>
                     </select>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-fashion-gold font-medium mb-2 font-inter">
+                    <label
+                      htmlFor="message"
+                      className="block text-fashion-gold font-medium mb-2 font-inter"
+                    >
                       Message *
                     </label>
                     <textarea
@@ -211,8 +264,9 @@ const Contact = () => {
                 Quels sont vos délais de livraison ?
               </h3>
               <p className="text-gray-300 font-inter leading-relaxed">
-                Nos délais de livraison sont de 3-5 jours ouvrables en France métropolitaine 
-                et 7-10 jours pour l'international. Pour les pièces personnalisées, comptez 2-3 semaines supplémentaires.
+                Nos délais de livraison sont de 1-2 jours ouvrables au Maroc
+                et 7-10 jours pour l'international.Pour les
+                pièces personnalisées, comptez 2-3 semaines supplémentaires.
               </p>
             </div>
 
@@ -221,8 +275,9 @@ const Contact = () => {
                 Proposez-vous des tailles sur mesure ?
               </h3>
               <p className="text-gray-300 font-inter leading-relaxed">
-                Absolument ! Nous proposons un service de personnalisation pour adapter nos créations 
-                à vos mensurations exactes. Contactez-nous pour plus d'informations.
+                Absolument ! Nous proposons un service de personnalisation pour
+                adapter nos créations à vos mensurations exactes. Contactez-nous
+                pour plus d'informations.
               </p>
             </div>
 
@@ -231,8 +286,8 @@ const Contact = () => {
                 Comment entretenir mes tenues FASHION ?
               </h3>
               <p className="text-gray-300 font-inter leading-relaxed">
-                Chaque pièce est livrée avec des instructions d'entretien spécifiques. 
-                En général, nous recommandons un nettoyage à sec pour préserver les tissus et broderies délicates.
+                En général, nous recommandons un nettoyage à sec
+                pour préserver les tissus et broderies délicates.
               </p>
             </div>
           </div>

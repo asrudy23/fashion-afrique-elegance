@@ -3,14 +3,15 @@ import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
 import TestimonialsSection from '../components/TestimonialsSection';
 import { Link } from 'react-router-dom';
-
+import { allProducts } from '@/mockdata/Products';
+/*
 const featuredProducts = [
   {
     id: 1,
     name: "Boubou Royal Doré",
     price: 189,
     originalPrice: 230,
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=600&auto=format&fit=crop",
+    image: "src/images/rb-shop1.png",
     category: "Boubou",
     rating: 5,
     isNew: true,
@@ -20,7 +21,7 @@ const featuredProducts = [
     id: 2,
     name: "Robe Wax Élégance",
     price: 145,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop",
+    image: "src/images/rb-shop1.png",
     category: "Robe Wax",
     rating: 5,
     isNew: true
@@ -29,7 +30,7 @@ const featuredProducts = [
     id: 3,
     name: "Ensemble Pagne Moderne",
     price: 165,
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=600&auto=format&fit=crop",
+    image: "src/images/rb-shop1.png",
     category: "Pagne",
     rating: 4
   },
@@ -37,12 +38,12 @@ const featuredProducts = [
     id: 4,
     name: "Tenue Mariage Luxe",
     price: 295,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop",
+    image: "src/images/rb-shop1.png",
     category: "Mariage",
     rating: 5,
     isNew: true
   }
-];
+];*/
 
 const Index = () => {
   return (
@@ -64,7 +65,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {featuredProducts.map((product, index) => (
+            {allProducts.map((product, index) => (
               <div
                 key={product.id}
                 className="animate-slide-up hover:scale-105 transition-transform duration-300"
@@ -106,7 +107,7 @@ const Index = () => {
             </div>
             <div className="relative animate-fade-in">
               <img
-                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=800&auto=format&fit=crop"
+                src="src/images/rb-shop6.png"
                 alt="Atelier FASHION"
                 className="rounded-xl shadow-2xl hover-lift"
               />

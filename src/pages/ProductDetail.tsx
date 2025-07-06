@@ -1,16 +1,25 @@
+import { useParams, Link } from "react-router-dom";
+import {
+  ArrowLeft,
+  ShoppingBag,
+  Star,
+  Heart,
+  Share2,
+  Import,
+} from "lucide-react";
+import { useState } from "react";
+import { allProducts } from "@/mockdata/Products";
+import Popup from "@/components/Popup";
 
-import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ShoppingBag, Star, Heart, Share2 } from 'lucide-react';
-import { useState } from 'react';
+/*
 
-// Données des produits (normalement cela viendrait d'une API)
 const allProducts = [
   {
     id: 1,
     name: "Boubou Royal Doré",
     price: 189,
     originalPrice: 230,
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=600&auto=format&fit=crop",
+    image: "/src/images/rb-shop1.png",
     category: "Boubou",
     rating: 5,
     isNew: true,
@@ -26,7 +35,7 @@ const allProducts = [
     id: 2,
     name: "Robe Wax Élégance",
     price: 145,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop",
+    image: "/src/images/rb-shop1.png",
     category: "Robe Wax",
     rating: 5,
     isNew: true,
@@ -41,7 +50,7 @@ const allProducts = [
     id: 3,
     name: "Ensemble Pagne Moderne",
     price: 165,
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=600&auto=format&fit=crop",
+    image: "/src/images/rb-shop1.png",
     category: "Pagne",
     rating: 4,
     description: "Ensemble deux pièces moderne qui réinvente le pagne traditionnel avec une touche contemporaine.",
@@ -55,7 +64,7 @@ const allProducts = [
     id: 4,
     name: "Tenue Mariage Luxe",
     price: 295,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop",
+    image: "/src/images/rb-shop1.png",
     category: "Mariage",
     rating: 5,
     isNew: true,
@@ -67,20 +76,55 @@ const allProducts = [
     delivery: "Livraison express 24-48h"
   }
 ];
-
+*/
 const ProductDetail = () => {
   const { id } = useParams();
-  const [selectedSize, setSelectedSize] = useState('');
-  const [selectedColor, setSelectedColor] = useState('');
+  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [popup, setPopup] = useState(null);
 
-  const product = allProducts.find(p => p.id === parseInt(id || '0'));
+  // Fonction pour créer un événement personnalisé qui notifiera le Header
+  const dispatchCartUpdate = () => {
+    window.dispatchEvent(new Event("cartUpdated"));
+  };
+
+  const product = allProducts.find((p) => p.id === parseInt(id || "0"));
+
+  const addToCart = () => {
+    if (!selectedSize || !selectedColor) {
+      setPopup({
+        message: "Veuillez sélectionner une taille et une couleur.",
+        type: "error",
+      });
+      return;
+    }
+
+    const item = {
+      id: product.id,
+      name: product.name,
+      image: product.image,
+      price: product.price,
+      size: selectedSize,
+      color: selectedColor,
+      quantity,
+    };
+
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    cart.push(item);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    dispatchCartUpdate(); // Notifie le Header de la mise à jour
+    setPopup({ message: "Produit ajouté au panier !", type: "success" });
+  };
 
   if (!product) {
     return (
       <div className="min-h-screen bg-fashion-black flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-playfair text-white mb-4">Produit non trouvé</h1>
+          <h1 className="text-2xl font-playfair text-white mb-4">
+            Produit non trouvé
+          </h1>
           <Link to="/collection" className="btn-gold">
             Retour à la collection
           </Link>
@@ -91,12 +135,20 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen bg-fashion-black pt-20">
+      {popup && <Popup message={popup.message} type={popup.type} onClose={() => setPopup(null)} />}
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <nav className="flex items-center gap-2 text-gray-400">
-          <Link to="/" className="hover:text-fashion-gold transition-colors">Accueil</Link>
+          <Link to="/" className="hover:text-fashion-gold transition-colors">
+            Accueil
+          </Link>
           <span>/</span>
-          <Link to="/collection" className="hover:text-fashion-gold transition-colors">Collection</Link>
+          <Link
+            to="/collection"
+            className="hover:text-fashion-gold transition-colors"
+          >
+            Collection
+          </Link>
           <span>/</span>
           <span className="text-fashion-gold">{product.name}</span>
         </nav>
@@ -134,7 +186,7 @@ const ProductDetail = () => {
                   </span>
                 )}
               </div>
-              
+
               <h1 className="text-3xl md:text-4xl font-playfair font-bold text-white mb-4">
                 {product.name}
               </h1>
@@ -147,22 +199,26 @@ const ProductDetail = () => {
                       key={i}
                       size={16}
                       className={`${
-                        i < product.rating ? 'text-fashion-gold fill-current' : 'text-gray-600'
+                        i < product.rating
+                          ? "text-fashion-gold fill-current"
+                          : "text-gray-600"
                       }`}
                     />
                   ))}
                 </div>
-                <span className="text-gray-400 text-sm">({product.rating}/5)</span>
+                <span className="text-gray-400 text-sm">
+                  ({product.rating}/5)
+                </span>
               </div>
 
               {/* Price */}
               <div className="flex items-center gap-4 mb-6">
                 <span className="text-fashion-gold font-bold text-3xl">
-                  {product.price}€
+                  {product.price}MAD
                 </span>
                 {product.originalPrice && (
                   <span className="text-gray-500 text-xl line-through">
-                    {product.originalPrice}€
+                    {product.originalPrice}MAD
                   </span>
                 )}
               </div>
@@ -177,10 +233,15 @@ const ProductDetail = () => {
 
             {/* Features */}
             <div>
-              <h3 className="text-white font-semibold mb-3">Caractéristiques :</h3>
+              <h3 className="text-white font-semibold mb-3">
+                Caractéristiques :
+              </h3>
               <ul className="space-y-2">
                 {product.features.map((feature, index) => (
-                  <li key={index} className="text-gray-300 flex items-center gap-2">
+                  <li
+                    key={index}
+                    className="text-gray-300 flex items-center gap-2"
+                  >
                     <span className="w-1.5 h-1.5 bg-fashion-gold rounded-full"></span>
                     {feature}
                   </li>
@@ -198,8 +259,8 @@ const ProductDetail = () => {
                     onClick={() => setSelectedSize(size)}
                     className={`px-4 py-2 border rounded-lg font-medium transition-all duration-300 ${
                       selectedSize === size
-                        ? 'border-fashion-gold bg-fashion-gold text-fashion-black'
-                        : 'border-gray-600 text-gray-300 hover:border-fashion-gold hover:text-fashion-gold'
+                        ? "border-fashion-gold bg-fashion-gold text-fashion-black"
+                        : "border-gray-600 text-gray-300 hover:border-fashion-gold hover:text-fashion-gold"
                     }`}
                   >
                     {size}
@@ -218,8 +279,8 @@ const ProductDetail = () => {
                     onClick={() => setSelectedColor(color)}
                     className={`px-4 py-2 border rounded-lg font-medium transition-all duration-300 ${
                       selectedColor === color
-                        ? 'border-fashion-gold bg-fashion-gold text-fashion-black'
-                        : 'border-gray-600 text-gray-300 hover:border-fashion-gold hover:text-fashion-gold'
+                        ? "border-fashion-gold bg-fashion-gold text-fashion-black"
+                        : "border-gray-600 text-gray-300 hover:border-fashion-gold hover:text-fashion-gold"
                     }`}
                   >
                     {color}
@@ -252,7 +313,10 @@ const ProductDetail = () => {
 
             {/* Actions */}
             <div className="flex gap-4 pt-4">
-              <button className="btn-gold flex-1 flex items-center justify-center gap-2">
+              <button
+                onClick={addToCart}
+                className="btn-gold flex-1 flex items-center justify-center gap-2"
+              >
                 <ShoppingBag size={20} />
                 Ajouter au Panier
               </button>
@@ -280,8 +344,8 @@ const ProductDetail = () => {
 
         {/* Back Button */}
         <div className="mt-12">
-          <Link 
-            to="/collection" 
+          <Link
+            to="/collection"
             className="inline-flex items-center gap-2 text-fashion-gold hover:text-white transition-colors"
           >
             <ArrowLeft size={20} />
